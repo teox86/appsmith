@@ -129,7 +129,7 @@ public class RestAPIActivateUtils {
                          * Handle XML response. Currently we only handle JSON & Image responses. The other kind of responses
                          * are kept as is and returned as a string.
                          */
-                        if (contentType.includes(MediaType.APPLICATION_JSON)) {
+                        if (contentType.includes(MediaType.APPLICATION_JSON) || contentType.includes(MediaType.APPLICATION_GRAPHQL_RESPONSE)) {
                             try {
                                 String jsonBody = new String(body, StandardCharsets.UTF_8);
                                 result.setBody(objectMapper.readTree(jsonBody));
